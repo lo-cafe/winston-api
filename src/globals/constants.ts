@@ -1,0 +1,1 @@
+export const cacheFolder = "data/cache/"
