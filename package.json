@@ -7,6 +7,7 @@
     "build": "tsc",
     "start": "ts-node src/main.ts",
     "dev": "tsnd --respawn --inspect -- src/main.ts",
+    "test": "ts-node src/main_test.ts",
     "deploy": "pm2 deploy production",
     "pm2": "pm2 start run-ts.sh --name Winny"
   },

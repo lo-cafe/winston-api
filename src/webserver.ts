@@ -85,22 +85,6 @@ export function expressServer(secret: string) {
     // this handles the cors preflight request
     app.options("*", cors());
 
-    app.get("/eligibility/:token", async (req: any, res: any) => {
-        //get the campaign channel form my server
-        if (
-            req.headers.authorization.split(" ")[0] == "Bearer" &&
-            req.headers.authorization.split(" ")[1] == secret
-        ) {
-            //Handle got message
-            const id = req.params.token
-            const eligibility = await getUserEligibility(id)
-            res.status(200).json(eligibility);
-
-        } else {
-            console.error("Error: Bearer Token mismatch");
-            res.sendStatus(403);
-        }
-    });
     //Handle File Uploads
     app.post('/themes/upload', upload.single('file'), (req: any, res: any) => {
         if (
